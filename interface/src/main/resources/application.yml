@@ -1,0 +1,129 @@
+server:
+  port: 8881
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/project?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      password: root
+      username: root
+      max-active: 20
+      initial-size: 5
+      min-idle: 5
+      min-evictable-idle-time-millis: 300000
+      max-wait: 60000
+      validation-query: select 1
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      filters: stat,wall
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: smile
+        login-password: root
+        allow:
+        deny:
+  redis:
+    host: 127.0.0.1
+    password: root
+    port: 6379
+    database: 0
+    timeout: 10s
+    client-type: lettuce
+    lettuce:
+      pool:
+        max-active: 1000
+        max-idle: 300
+        min-idle: 3
+        max-wait: -1
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33444432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        linger.ms: 1
+    consumer:
+      group-id: livechatGroup
+      enable-auto-commit: false
+      auto-commit-interval: 1s
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      fetch-min-size: 1
+      fetch-max-wait: 500
+      max-poll-records: 500
+    listener:
+      concurrency: 1
+      ack-mode: manual_immediate
+      missing-topics-fatal: false
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: myuser
+    password: mypass
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+mybatis:
+  configuration:
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    lazy-loading-enabled: true
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-field: is_deleted
+      logic-delete-value: 1
+
+knife4j:
+  enable: true
+  production: false
+  basic:
+    enable: true
+    username: smile
+    password: root
+
+xxl:
+  job:
+    accessToken:
+    admin:
+      addresses: http://127.0.0.1:8081/xxl-job-admin
+    executor:
+      appname: livechat
+      port: 38801
+      address:
+      ip:
+      logpath: ./logs/job
+      logretentiondays: 30
+
+logging:
+  file:
+    path: ./logs
+  level:
+    name: info

@@ -1,0 +1,8 @@
+.idea
+target
+logs
+livechat.iml
+*.iml
+./logs
+LOG_PATH_IS_UNDEFINED
+logPath_IS_UNDEFINED
