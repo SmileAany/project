@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * @author: smile
- * @title:
- * @projectName:
- * @description: TODO
+ * @title: xxl-job配置项
+ * @projectName: project
+ * @description: xxl-job配置项
  * @date: 2023/8/10 11:13 上午
  */
 public class XxlJobConfiguration {

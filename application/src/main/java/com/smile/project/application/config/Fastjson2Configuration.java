@@ -14,9 +14,9 @@ import java.util.List;
 
 /**
  * @author: smile
- * @title:
- * @projectName:
- * @description: TODO
+ * @title: fastjson配置项
+ * @projectName: project
+ * @description: fastjson配置项
  * @date: 2023/8/8 6:28 下午
  */
 @Configuration

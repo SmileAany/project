@@ -26,16 +26,17 @@ import java.util.stream.Stream;
 
 /**
  * @author: smile
- * @title:
- * @projectName:
- * @description: TODO
+ * @title: 异常几种处理器
+ * @projectName: project
+ * @description: 异常几种处理器
  * @date: 2023/8/14 8:10 下午
  */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     /**
-     * dev
+     * 测试环境 dev
+     * 生产环境 prod
      **/
     private static final String DEV = "dev";
 

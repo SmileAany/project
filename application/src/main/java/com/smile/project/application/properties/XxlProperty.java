@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author: smile
- * @title:
- * @projectName:
- * @description: TODO
+ * @title: xxl-job属性配置
+ * @projectName: project
+ * @description: xxl-job属性配置
  * @date: 2023/8/10 11:14 上午
  */
 @Data

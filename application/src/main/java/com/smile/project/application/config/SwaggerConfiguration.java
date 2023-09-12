@@ -21,14 +21,17 @@ import java.util.List;
 
 /**
  * @author: smile
- * @title:
- * @projectName:
- * @description: TODO
+ * @title: Swagger配置项
+ * @projectName: project
+ * @description: Swagger配置项
  * @date: 2023/8/7 3:57 下午
  */
 @EnableOpenApi
 @Configuration
 public class SwaggerConfiguration {
+    /**
+     * 创建api
+     **/
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.OAS_30)
@@ -44,12 +47,15 @@ public class SwaggerConfiguration {
                 .enable(true);
     }
 
+    /**
+     * 描述api信息
+    **/
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("swagger")
-                .description("swagger接口文档")
+                .title("project")
+                .description("project 项目")
                 .termsOfServiceUrl("/")
-                .contact(new Contact("smile", "www.github.com", "ywjmylove@163.com"))
+                .contact(new Contact("smile", "https://github.com/SmileAany/project", "ywjmylove@163.com"))
                 .version("1.0.0")
                 .build();
     }
