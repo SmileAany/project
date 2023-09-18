@@ -109,6 +109,11 @@ knife4j:
     username: smile
     password: root
 
+socket:
+  webSocketPort: 9998
+  bossThreadCount: 1
+  workThreadCount: 4
+
 xxl:
   job:
     accessToken:

@@ -1,4 +1,4 @@
-package com.smile.project.application.handler;
+package com.smile.project.application.exception;
 
 import com.smile.project.common.exceptions.BaseException;
 import com.smile.project.common.utils.response.ResponseUtil;
@@ -33,7 +33,7 @@ import java.util.stream.Stream;
  */
 @Slf4j
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalException {
     /**
      * 测试环境 dev
      * 生产环境 prod
